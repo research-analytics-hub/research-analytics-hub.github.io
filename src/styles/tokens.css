@@ -1,0 +1,113 @@
+/* REACH design tokens, generated from the REACH design system (tokens.json). Edit the design system, not this file. */
+
+:root {
+  --font-display: "Red Hat Display", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Red Hat Text", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Red Hat Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-pill: 999px;
+  --content-max: 1120px;
+  --measure: 68ch;
+  --header-height: 72px;
+  --rule-weight: 3px;
+  --navy: #1d365f;
+  --navy-deep: #14284a;
+  --navy-tint: #e8eef7;
+  --spectrum-blue: #3887e1;
+  --spectrum-cyan: #4db0c3;
+  --spectrum-lime: #cedc49;
+  --spectrum-yellow: #f1d62d;
+  --spectrum-orange: #f6a566;
+  --surface: #f7f6f2;
+  --surface-raised: #ffffff;
+  --surface-sunken: #eef2f8;
+  --ink: #14223b;
+  --ink-muted: #4b5a72;
+  --on-navy: #ffffff;
+  --on-navy-muted: #c9d6ea;
+  --line: #d9dde4;
+  --line-strong: #77839a;
+  --accent: #2360b0;
+  --accent-hover: #1a4c8f;
+  --on-accent: #ffffff;
+  --focus: #b04a06;
+  --focus-on-navy: #f6a566;
+  --info: #2360b0;
+  --info-soft: #e6eef9;
+  --success: #1b6e64;
+  --success-soft: #e3f3f0;
+  --warning: #8a5300;
+  --warning-soft: #fdf1db;
+  --danger: #b42318;
+  --danger-soft: #fbe7e4;
+  --chart-1: #1d365f;
+  --chart-2: var(--spectrum-blue);
+  --chart-3: var(--spectrum-orange);
+  --chart-4: var(--spectrum-cyan);
+  --chart-5: var(--spectrum-yellow);
+  --chart-6: var(--spectrum-lime);
+  --shadow-lift: 0 6px 18px -8px rgba(20, 34, 59, 0.28);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --navy-tint: #1b3358;
+    --surface: #0f1b30;
+    --surface-raised: #172742;
+    --surface-sunken: #0a1324;
+    --ink: #eef1f6;
+    --ink-muted: #a9b4c6;
+    --line: #2a3a57;
+    --line-strong: #6a7d9d;
+    --accent: #7fb3f0;
+    --accent-hover: #a9cbf5;
+    --on-accent: #0f1b30;
+    --focus: #f6a566;
+    --info: #9cc4f4;
+    --info-soft: #182c4d;
+    --success: #6fd0c2;
+    --success-soft: #13322f;
+    --warning: #f3c063;
+    --warning-soft: #3a2c10;
+    --danger: #ff8a7a;
+    --danger-soft: #3d1d1d;
+    --chart-1: #9cc4f4;
+    --shadow-lift: 0 6px 18px -8px rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-theme="dark"] {
+  --navy-tint: #1b3358;
+  --surface: #0f1b30;
+  --surface-raised: #172742;
+  --surface-sunken: #0a1324;
+  --ink: #eef1f6;
+  --ink-muted: #a9b4c6;
+  --line: #2a3a57;
+  --line-strong: #6a7d9d;
+  --accent: #7fb3f0;
+  --accent-hover: #a9cbf5;
+  --on-accent: #0f1b30;
+  --focus: #f6a566;
+  --info: #9cc4f4;
+  --info-soft: #182c4d;
+  --success: #6fd0c2;
+  --success-soft: #13322f;
+  --warning: #f3c063;
+  --warning-soft: #3a2c10;
+  --danger: #ff8a7a;
+  --danger-soft: #3d1d1d;
+  --chart-1: #9cc4f4;
+  --shadow-lift: 0 6px 18px -8px rgba(0, 0, 0, 0.6);
+}

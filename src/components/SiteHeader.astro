@@ -1,0 +1,32 @@
+---
+import { isExternal } from "../lib/content";
+
+// `rule` draws the solid spectrum rule along the bottom of the header.
+// Pages with a hero draw their own at the bottom of the hero instead.
+const { settings, rule = true } = Astro.props;
+const path = Astro.url.pathname;
+const isCurrent = (url: string) => !isExternal(url) && url !== "/" && path.startsWith(url);
+---
+
+<header class="rch-header">
+  <div class="rch-container rch-header-inner">
+    <a class="rch-header-brand" href="/">
+      <img
+        src="/img/reach-logo-full.png"
+        alt="REACH, Research Evaluation & Analytics Capacity Hub. Code and data home."
+        width="130"
+        height="40"
+      />
+    </a>
+    <nav class="rch-nav" aria-label="Main">
+      {
+        settings.navigation.map((item: { label: string; url: string }) => (
+          <a href={item.url} aria-current={isCurrent(item.url) ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+  {rule && <div class="rch-spectrum" role="presentation"></div>}
+</header>

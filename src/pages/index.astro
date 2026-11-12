@@ -1,0 +1,86 @@
+---
+import Base from "../layouts/Base.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import AnnouncementCard from "../components/AnnouncementCard.astro";
+import { getActiveCallouts, getProjects, getSettings } from "../lib/content";
+
+const settings = await getSettings();
+const { hero } = settings;
+const projects = await getProjects();
+const featured = projects.find((p) => p.data.featured);
+const recent = [...(featured ? [featured] : []), ...projects.filter((p) => p !== featured)].slice(0, 6);
+const callouts = await getActiveCallouts();
+---
+
+<Base hero>
+  <section class="rch-hero rch-on-navy">
+    <div class="rch-container rch-hero-inner">
+      <div>
+        <p class="rch-eyebrow">{hero.eyebrow}</p>
+        <h1 class="rch-hero-title">{hero.title}</h1>
+        <p class="rch-hero-lead">{hero.lead}</p>
+        <div class="rch-hero-actions">
+          <a class="rch-btn rch-btn-inverse" href={hero.primary_action.url}>{hero.primary_action.label}</a>
+          <a class="rch-btn rch-btn-secondary" href={hero.secondary_action.url}>{hero.secondary_action.label}</a>
+        </div>
+      </div>
+      <div class="rch-hero-mark"><img src="/img/reach-mark.png" alt="" width="378" height="416" /></div>
+    </div>
+    <div class="rch-spectrum" role="presentation"></div>
+  </section>
+
+  {
+    callouts.length > 0 && (
+      <section class="rch-container section" aria-label="Announcements">
+        {callouts.slice(0, 1).map((c) => <AnnouncementCard callout={c} />)}
+      </section>
+    )
+  }
+
+  <section class="rch-container section" aria-labelledby="recent-heading">
+    <div class="section-head">
+      <h2 id="recent-heading">Recent projects</h2>
+      {projects.length > 0 && <a class="rch-btn rch-btn-quiet" href="/projects/">Browse all projects</a>}
+    </div>
+    {
+      recent.length > 0 ? (
+        <div class="card-grid">
+          {recent.map((p) => <ProjectCard project={p} />)}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>
+            No projects are listed yet. If you maintain a repository that other research analytics teams could
+            use, the contribution guide shows how to add it.
+          </p>
+          <a class="rch-btn rch-btn-primary" href="/contribute/">Read the contribution guide</a>
+        </div>
+      )
+    }
+  </section>
+
+  <section class="band" aria-labelledby="contribute-heading">
+    <div class="rch-container band-inner">
+      <div>
+        <p class="rch-eyebrow">Contribute</p>
+        <h2 id="contribute-heading">List your work here</h2>
+        <p>
+          Each listing is a short text file in this site's GitHub repository. Copy the template into a new file,
+          then open a pull request with your project's details. Once a REACH maintainer has reviewed and merged
+          it, the listing goes live.
+        </p>
+        <a class="rch-btn rch-btn-primary" href="/contribute/">Add your project</a>
+      </div>
+      <div>
+        <p class="rch-eyebrow">About REACH</p>
+        <h2>Part of a wider community</h2>
+        <p>
+          REACH, the Research Evaluation & Analytics Capacity Hub, connects people who measure and support research
+          at universities and research organizations around the world. Its mentorship program and annual Summit are
+          on the main REACH site.
+        </p>
+        <a class="rch-btn rch-btn-secondary" href="https://reach.uky.edu/">Visit the REACH website</a>
+      </div>
+    </div>
+  </section>
+</Base>

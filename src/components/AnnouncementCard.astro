@@ -1,0 +1,22 @@
+---
+// A time-limited announcement from content/callouts, drawn as the framed card
+// (one per page, for the featured item).
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+
+interface Props {
+  callout: CollectionEntry<"callouts">;
+}
+
+const { callout } = Astro.props;
+const { Content } = await render(callout);
+---
+
+<article class="rch-card rch-card-framed announcement">
+  <p class="rch-eyebrow">{callout.data.label}</p>
+  <h2 class="rch-card-title">{callout.data.title}</h2>
+  <div class="announcement-body"><Content /></div>
+  <div class="rch-card-foot">
+    <a class="rch-btn rch-btn-secondary rch-btn-sm" href={callout.data.link_url}>{callout.data.link_text}</a>
+  </div>
+</article>

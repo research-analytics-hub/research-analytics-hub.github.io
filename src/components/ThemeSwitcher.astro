@@ -1,0 +1,59 @@
+---
+// Lets readers override the system light/dark setting. The choice is saved in
+// this browser only (localStorage); "System" clears it. Hidden without
+// JavaScript, since the site already follows the system setting by default.
+const options = [
+  { value: "system", label: "System" },
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+];
+---
+
+<fieldset class="theme-switcher" data-theme-switcher hidden>
+  <legend>Theme</legend>
+  <div class="theme-options">
+    {
+      options.map((o) => (
+        <label>
+          <input type="radio" name="theme" value={o.value} checked={o.value === "system"} />
+          <span>{o.label}</span>
+        </label>
+      ))
+    }
+  </div>
+</fieldset>
+
+<script>
+  const KEY = "reach-theme";
+  const root = document.documentElement;
+  const switcher = document.querySelector<HTMLFieldSetElement>("[data-theme-switcher]");
+
+  function saved() {
+    try {
+      const t = localStorage.getItem(KEY);
+      return t === "light" || t === "dark" ? t : "system";
+    } catch {
+      return "system";
+    }
+  }
+
+  function apply(choice: string) {
+    if (choice === "light" || choice === "dark") root.dataset.theme = choice;
+    else delete root.dataset.theme;
+    try {
+      if (choice === "system") localStorage.removeItem(KEY);
+      else localStorage.setItem(KEY, choice);
+    } catch {
+      // Storage blocked (private mode, strict settings): the choice lasts for this page only.
+    }
+  }
+
+  if (switcher) {
+    const current = saved();
+    switcher.querySelectorAll<HTMLInputElement>("input[name=theme]").forEach((input) => {
+      input.checked = input.value === current;
+    });
+    switcher.addEventListener("change", (e) => apply((e.target as HTMLInputElement).value));
+    switcher.hidden = false;
+  }
+</script>

@@ -1,0 +1,63 @@
+---
+import "../styles/tokens.css";
+import "../styles/reach.css";
+import "../styles/site.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { getSettings } from "../lib/content";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Pages that open with a PageHero draw their own spectrum rule. */
+  hero?: boolean;
+}
+
+const settings = await getSettings();
+const { title, description = settings.description, hero = false } = Astro.props;
+const fullTitle = title ? `${title} · ${settings.title}` : settings.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/img/reach-logo-full.png", Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/img/reach-mark.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      // Apply a saved theme choice before the page paints, so there's no flash.
+      // No saved choice means "follow the system setting".
+      try {
+        var t = localStorage.getItem("reach-theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Mono:wght@400;500&family=Red+Hat+Text:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader settings={settings} rule={!hero} />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter settings={settings} />
+  </body>
+</html>

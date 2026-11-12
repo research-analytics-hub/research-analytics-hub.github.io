@@ -1,0 +1,68 @@
+---
+import Base from "../../layouts/Base.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getProjects } from "../../lib/content";
+
+const projects = await getProjects();
+const kinds = [...new Set(projects.map((p) => p.data.kind))].sort();
+---
+
+<Base title="Projects" description="Code, data and guides published by members of the REACH community.">
+  <div class="rch-container page">
+    <header class="page-head">
+      <p class="rch-eyebrow">Projects</p>
+      <h1>All projects</h1>
+      <p class="lead">
+        Everything here is maintained by its authors in their own GitHub repositories. Open a project to see who
+        maintains it and how recently it changed.
+      </p>
+    </header>
+
+    {
+      projects.length === 0 ? (
+        <div class="empty-state">
+          <p>No projects are listed yet. The contribution guide explains how to add the first one.</p>
+          <a class="rch-btn rch-btn-primary" href="/contribute/">Read the contribution guide</a>
+        </div>
+      ) : (
+        <>
+          {kinds.length > 1 && (
+            <div class="filter" role="group" aria-label="Filter by type" data-filter hidden>
+              <button type="button" class="rch-btn rch-btn-secondary rch-btn-sm" aria-pressed="true" data-kind="">
+                All
+              </button>
+              {kinds.map((k) => (
+                <button type="button" class="rch-btn rch-btn-secondary rch-btn-sm" aria-pressed="false" data-kind={k}>
+                  {k}
+                </button>
+              ))}
+            </div>
+          )}
+          <ul class="card-grid card-list" data-projects>
+            {projects.map((p) => (
+              <li data-kind={p.data.kind}>
+                <ProjectCard project={p} headingLevel="h2" />
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  </div>
+</Base>
+
+<script>
+  // Optional filter: without JavaScript every project simply stays visible.
+  const group = document.querySelector<HTMLElement>("[data-filter]");
+  const items = document.querySelectorAll<HTMLElement>("[data-projects] > li");
+  if (group) {
+    group.hidden = false;
+    group.addEventListener("click", (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>("button[data-kind]");
+      if (!btn) return;
+      const kind = btn.dataset.kind;
+      group.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      items.forEach((li) => (li.hidden = Boolean(kind) && li.dataset.kind !== kind));
+    });
+  }
+</script>

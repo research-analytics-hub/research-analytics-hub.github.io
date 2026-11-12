@@ -1,0 +1,56 @@
+# Site-wide settings: the headline on the home page, the menu, and the footer.
+#
+# Editing tips
+# - Keep the two spaces of indentation in front of each line; YAML uses them
+#   to know which setting a line belongs to.
+# - Wrap text in double quotes if it contains a colon (:) or starts with a
+#   special character such as # or *.
+# - Lines starting with # are notes like this one and are ignored.
+
+site:
+  title: "REACH code and data"
+  description: "Open code, data and guides from the Research Evaluation & Analytics Capacity Hub community."
+  github_org: "research-analytics-hub"
+
+  # The navy band at the top of the home page.
+  hero:
+    eyebrow: "Research Evaluation & Analytics Capacity Hub"
+    title: "Shared code and data for research analytics"
+    lead: "Analysts at different institutions keep solving the same problems. This is where members of the REACH community publish the code and data behind their work so the next person can start from it."
+    primary_action:
+      label: "Browse projects"
+      url: "/projects/"
+    secondary_action:
+      label: "Add your project"
+      url: "/contribute/"
+
+  # Links in the top menu, left to right. Use paths like /about/ for pages
+  # on this site and full addresses (https://...) for other sites.
+  navigation:
+    - label: "Projects"
+      url: "/projects/"
+    - label: "Contribute"
+      url: "/contribute/"
+    - label: "About"
+      url: "/about/"
+    - label: "REACH home"
+      url: "https://reach.uky.edu/"
+
+  footer:
+    about: "REACH, the Research Evaluation & Analytics Capacity Hub, is a global forum for research analytics, data-informed decision-making and responsible research assessment."
+    columns:
+      - title: "This site"
+        links:
+          - label: "Projects"
+            url: "/projects/"
+          - label: "How to contribute"
+            url: "/contribute/"
+          - label: "GitHub organization"
+            url: "https://github.com/research-analytics-hub"
+      - title: "REACH"
+        links:
+          - label: "REACH home"
+            url: "https://reach.uky.edu/"
+          - label: "Research Analytics Summit"
+            url: "https://analyticssummit.uky.edu/"
+    fine_print: "REACH is supported by the U.S. National Science Foundation under award 2444978 and hosted by Institutional Research, Analytics and Decision Support at the University of Kentucky. Code and data listed here belong to their authors and carry their own licenses."

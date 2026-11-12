@@ -1,0 +1,36 @@
+---
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+
+const { settings } = Astro.props;
+const { footer } = settings;
+---
+
+<footer class="rch-footer">
+  <hr class="rch-spectrum" aria-hidden="true" />
+  <div class="rch-container">
+    <div class="rch-footer-inner">
+      <div>
+        <h2>{settings.title}</h2>
+        <p class="footer-about">{footer.about}</p>
+      </div>
+      {
+        footer.columns.map((col: { title: string; links: { label: string; url: string }[] }) => (
+          <div>
+            <h2>{col.title}</h2>
+            <ul>
+              {col.links.map((l) => (
+                <li>
+                  <a href={l.url}>{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+    <div class="rch-footer-fine footer-fine-row">
+      <p>{footer.fine_print}</p>
+      <ThemeSwitcher />
+    </div>
+  </div>
+</footer>
