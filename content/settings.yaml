@@ -45,7 +45,7 @@ site:
             url: "/projects/"
           - label: "How to contribute"
             url: "/contribute/"
-          - label: "GitHub organization"
+          - label: "GitHub"
             url: "https://github.com/research-analytics-hub"
       - title: "REACH"
         links:
@@ -53,4 +53,4 @@ site:
             url: "https://reach.uky.edu/"
           - label: "Research Analytics Summit"
             url: "https://analyticssummit.uky.edu/"
-    fine_print: "REACH is supported by the U.S. National Science Foundation under award 2444978 and hosted by Institutional Research, Analytics and Decision Support at the University of Kentucky. Code and data listed here belong to their authors and carry their own licenses."
+    fine_print: "REACH is supported by the U.S. National Science Foundation under award 2444978 and hosted by Institutional Research, Analytics and Decision Support at the University of Kentucky. Code and data listed here belong to their authors and carry their own licenses.  The material, content, and opinions contained on this site and in the listed respositories are that of their authors and do not reflect an official position of the NSF."
