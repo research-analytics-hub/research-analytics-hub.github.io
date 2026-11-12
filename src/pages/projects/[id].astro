@@ -23,7 +23,7 @@ const repoUrl = repo?.url ?? `https://github.com/${data.repo}`;
       <h1>{data.title}</h1>
       <p class="lead">{data.summary}</p>
       <div class="actions">
-        <a class="rch-btn rch-btn-primary" href={repoUrl}>View the repository</a>
+        <a class="rch-btn rch-btn-primary" href={repoUrl} target="_blank" rel="noopener noreferrer">View the repository</a>
         {data.links.map((l) => <a class="rch-btn rch-btn-secondary" href={l.url}>{l.label}</a>)}
       </div>
     </header>
@@ -61,7 +61,7 @@ const repoUrl = repo?.url ?? `https://github.com/${data.repo}`;
                 {
                   data.maintainers.map((m) => (
                     <li>
-                      {m.github ? <a href={`https://github.com/${m.github}`}>{m.name}</a> : m.name}
+                      {m.github ? <a target="_blank" rel="noopener noreferrer" href={`https://github.com/${m.github}`}>{m.name}</a> : m.name}
                       {m.affiliation && <span class="meta-sub">{m.affiliation}</span>}
                     </li>
                   ))
@@ -71,16 +71,8 @@ const repoUrl = repo?.url ?? `https://github.com/${data.repo}`;
           </div>
           <div>
             <dt>Repository</dt>
-            <dd><a href={repoUrl}><code>{data.repo}</code></a></dd>
+            <dd><a href={repoUrl} target="_blank" rel="noopener noreferrer"><code>{data.repo}</code></a></dd>
           </div>
-          {
-            repo?.language && (
-              <div>
-                <dt>Main language</dt>
-                <dd>{repo.language}</dd>
-              </div>
-            )
-          }
           <div>
             <dt>License</dt>
             <dd>{repo ? (repo.license ?? "None detected; check the repository") : "See the repository"}</dd>

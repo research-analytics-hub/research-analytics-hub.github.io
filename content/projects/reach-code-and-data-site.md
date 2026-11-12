@@ -17,6 +17,6 @@ This entry exists to show how a listing looks while the first real projects are
 being added. It is marked as a draft, so it appears when you preview the site
 locally and stays off the live site.
 
-Every project page pulls its description, primary language, license and last
+Every project page pulls its license and last
 update from GitHub when the site builds. The text you are reading now comes from
 the Markdown file in `content/projects/`.

@@ -8,7 +8,6 @@
 export interface RepoInfo {
   url: string;
   description: string | null;
-  language: string | null;
   license: string | null;
   pushedAt: Date;
   archived: boolean;
@@ -62,7 +61,6 @@ async function fetchRepo(repo: string): Promise<RepoInfo | null> {
   return {
     url: data.html_url,
     description: data.description,
-    language: data.language,
     license: data.license && data.license.spdx_id !== "NOASSERTION" ? data.license.spdx_id : null,
     pushedAt: new Date(data.pushed_at),
     archived: Boolean(data.archived),

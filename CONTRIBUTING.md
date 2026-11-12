@@ -81,7 +81,7 @@ wording changes. After it's merged, the site updates within a few minutes.
 
 ## Updating or removing a listing
 
-The repository's language, license and last-updated date come from GitHub every time
+The repository's license and last-updated date come from GitHub every time
 the site rebuilds, which happens at least once a day, so those stay current on their
 own. Edit your listing file when something in it changes, such as a new maintainer or
 a better summary.

@@ -21,7 +21,6 @@ const Heading = headingLevel;
   <div class="rch-card-foot">
     {data.draft && <span class="rch-badge rch-badge-warning">Draft</span>}
     {repo?.archived && <span class="rch-badge rch-badge-warning">Archived</span>}
-    {repo?.language && <span class="rch-badge">{repo.language}</span>}
     {data.topics.slice(0, 3).map((t) => <span class="rch-badge">{t}</span>)}
     {
       repo && (

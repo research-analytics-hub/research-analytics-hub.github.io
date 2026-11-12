@@ -43,7 +43,7 @@ The workflow in `.github/workflows/site.yml` runs:
   against the rules in `src/content.config.ts` and confirms that each listed
   repository exists and is public. A failing check names the file and the field.
 - **On every push to `main`**: builds and deploys to GitHub Pages.
-- **Daily**: rebuilds so repository details (language, license, last update) stay
+- **Daily**: rebuilds so repository details (license, last update) stay
   current and expired announcements drop off.
 
 The built site is uploaded as a Pages artifact; there is no `gh-pages` branch.

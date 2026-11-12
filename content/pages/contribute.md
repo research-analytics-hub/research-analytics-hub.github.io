@@ -50,7 +50,7 @@ wording changes, and merges it. The site updates a few minutes after that.
 
 ## Keeping a listing current
 
-The repository description, language, license and last-updated date come straight from
+The repository's license and last-updated date come straight from
 GitHub each time the site rebuilds, which happens at least once a day. You only need
 to edit your listing file when something in it changes, such as a new maintainer. To remove a
 listing, open a pull request that deletes the file, or

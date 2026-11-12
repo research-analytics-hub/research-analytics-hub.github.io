@@ -8,7 +8,7 @@
 title: "Award trends by sponsor"
 
 # Required. The GitHub repository, written as owner/name.
-# The site reads the description, language, license and last update from it.
+# The site reads the license and last update from it.
 repo: "your-org/your-repository"
 
 # Required. One or two sentences: what the project does and who it helps.
