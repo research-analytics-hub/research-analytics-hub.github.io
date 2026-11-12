@@ -38,6 +38,23 @@ export function formatDate(d: Date) {
   return dateFormat.format(d);
 }
 
+/**
+ * Turns plain settings text into safe HTML, converting Markdown-style links,
+ * [link text](https://example.org) or [link text](/about/), into <a> tags.
+ * Everything else is escaped, so stray < or & characters can't break the page.
+ */
+export function inlineLinks(text: string): string {
+  const escaped = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+  return escaped.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/g,
+    (_, label, url) => `<a href="${url}">${label}</a>`,
+  );
+}
+
 export function isExternal(url: string) {
   return /^https?:\/\//.test(url);
 }

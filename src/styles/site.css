@@ -73,6 +73,8 @@ img { max-width: 100%; }
 /* Footer fine print paragraphs */
 .rch-footer-fine p { margin: 0; max-width: 90ch; }
 .rch-footer-fine p + p { margin-top: var(--space-2); }
+/* Links in the fine print keep the text's own color and size; only the underline marks them. */
+.rch-footer-fine p a { color: inherit; font: inherit; text-decoration-color: currentColor; }
 .footer-about { margin: 0; max-width: 46ch; }
 
 /* Prose tweaks for Markdown pages */

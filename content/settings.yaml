@@ -14,9 +14,12 @@ site:
 
   # The navy band at the top of the home page.
   hero:
-    eyebrow: "Research Evaluation & Analytics Capacity Hub"
-    title: "Shared code and data for research analytics"
-    lead: "Analysts at different institutions keep solving the same problems. This is where members of the REACH community publish the code and data behind their work so the next person can start from it."
+    eyebrow: Research Evaluation & Analytics Capacity Hub
+    title: Shared code and data for research analytics
+    lead: >-
+      Analysts at different institutions keep solving the same problems. 
+      This is where members of the REACH community publish the code and data behind 
+      their work so the next person can start from it.
     primary_action:
       label: "Browse projects"
       url: "/projects/"
@@ -36,8 +39,13 @@ site:
     - label: "REACH home"
       url: "https://reach.uky.edu/"
 
+  # The "about" and "fine_print" text can include links written like this:
+  #   [link text](https://example.org)   or   [link text](/about/)
   footer:
-    about: "REACH, the Research Evaluation & Analytics Capacity Hub, is a global forum for research analytics, data-informed decision-making and responsible research assessment."
+    about: >-
+      REACH, the Research Evaluation & Analytics Capacity Hub, is a global forum 
+      for research analytics, data-informed decision-making and responsible 
+      research assessment.
     columns:
       - title: "This site"
         links:
@@ -53,4 +61,11 @@ site:
             url: "https://reach.uky.edu/"
           - label: "Research Analytics Summit"
             url: "https://analyticssummit.uky.edu/"
-    fine_print: "REACH is supported by the U.S. National Science Foundation under award 2444978 and hosted by Institutional Research, Analytics and Decision Support at the University of Kentucky. Code and data listed here belong to their authors and carry their own licenses.  The material, content, and opinions contained on this site and in the listed respositories are that of their authors and do not reflect an official position of the NSF."
+    fine_print: >-
+      REACH is supported by the U.S. National Science Foundation 
+      [(Grant No 2444978)](https://www.nsf.gov/awardsearch/show-award?AWD_ID=2444978)
+      and hosted by Institutional Research, Analytics and Decision Support at the 
+      University of Kentucky. Code and data listed here belong to their authors 
+      and carry their own licenses.  The material, content, and opinions contained 
+      on this site and in the listed repositories are those of their authors and do not
+      reflect an official position of the NSF.

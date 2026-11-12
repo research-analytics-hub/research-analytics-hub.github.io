@@ -6,8 +6,7 @@ eyebrow: "Contribute"
 
 If you've published code, data or a guide that would save another research analytics
 team some time, we'd like to list it. You keep the repository; this site links to it
-and shows a short summary. Adding a listing takes about fifteen minutes and happens
-entirely in your web browser.
+and shows a short summary. Adding a listing takes about fifteen minutes.
 
 ## Before you start
 

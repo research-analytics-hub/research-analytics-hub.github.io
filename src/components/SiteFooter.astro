@@ -1,5 +1,6 @@
 ---
 import ThemeSwitcher from "./ThemeSwitcher.astro";
+import { inlineLinks } from "../lib/content";
 
 const { settings } = Astro.props;
 const { footer } = settings;
@@ -11,7 +12,7 @@ const { footer } = settings;
     <div class="rch-footer-inner">
       <div>
         <h2>{settings.title}</h2>
-        <p class="footer-about">{footer.about}</p>
+        <p class="footer-about" set:html={inlineLinks(footer.about)} />
       </div>
       {
         footer.columns.map((col: { title: string; links: { label: string; url: string }[] }) => (
@@ -29,7 +30,7 @@ const { footer } = settings;
       }
     </div>
     <div class="rch-footer-fine footer-fine-row">
-      <p>{footer.fine_print}</p>
+      <p set:html={inlineLinks(footer.fine_print)} />
       <ThemeSwitcher />
     </div>
   </div>
