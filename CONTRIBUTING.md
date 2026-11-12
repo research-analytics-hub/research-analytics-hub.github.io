@@ -100,6 +100,9 @@ For anything larger, open an issue first so we can talk it through.
 
 ### Reviewing a listing pull request
 
+GitHub asks the Resource Reviewers team for a review automatically on any pull
+request that changes `content/projects/` (set in `.github/CODEOWNERS`).
+
 - The **Build site** check must pass. It has already confirmed the fields and that
   the repository is public.
 - Open the repository and confirm it has a README and a license, and skim it for

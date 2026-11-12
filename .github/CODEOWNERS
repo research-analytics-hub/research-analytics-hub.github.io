@@ -1,0 +1,6 @@
+# Reviewers GitHub requests automatically when a pull request touches these paths.
+# The team needs write access to this repository for the request to work.
+# Docs: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Resource listings
+/content/projects/ @research-analytics-hub/resource-reviewers
