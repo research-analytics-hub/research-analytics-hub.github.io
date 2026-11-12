@@ -20,9 +20,15 @@ common for code and CC BY 4.0 for data.
 Please don't list anything that contains identifiable information about people or
 data your institution restricts. Public data and synthetic data are both fine.
 
-## Add a listing
+## Prefer a form?
 
-You'll need a free [GitHub account](https://github.com/signup).
+If you'd rather not edit a file, fill in a
+[resource request](https://github.com/research-analytics-hub/research-analytics-hub.github.io/issues/new?template=resource-request.yml)
+on GitHub instead. A REACH maintainer writes the listing from your answers and follows
+up on the request if anything is unclear. You'll need a free
+[GitHub account](https://github.com/signup) for either route.
+
+## Add a listing yourself
 
 1. Open the
    [project template](https://github.com/research-analytics-hub/research-analytics-hub.github.io/blob/main/content/projects/_template.md)
@@ -51,3 +57,7 @@ to edit your listing file when something in it changes, such as a new maintainer
 listing, open a pull request that deletes the file, or
 [open an issue](https://github.com/research-analytics-hub/research-analytics-hub.github.io/issues/new)
 and we'll take it down.
+
+The repository's
+[contributing guide](https://github.com/research-analytics-hub/research-analytics-hub.github.io/blob/main/CONTRIBUTING.md)
+covers all of this in more detail, including what reviewers check.

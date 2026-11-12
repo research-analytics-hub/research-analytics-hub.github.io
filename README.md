@@ -12,7 +12,7 @@ folder, so most changes never touch code.
 | To change… | Edit |
 | --- | --- |
 | A project listing | `content/projects/<project>.md` |
-| Add a project | Copy `content/projects/_template.md` to a new file (see [How to contribute](https://research-analytics-hub.github.io/contribute/)) |
+| Add a project | Copy `content/projects/_template.md` to a new file, or file a resource request issue (see [CONTRIBUTING.md](CONTRIBUTING.md)) |
 | The About or Contribute page | `content/pages/about.md`, `content/pages/contribute.md` |
 | Add a page | A new `.md` file in `content/pages/`; `history.md` becomes `/history/`. Add it to the menu in `content/settings.yaml` |
 | Home page headline, menu, footer | `content/settings.yaml` |

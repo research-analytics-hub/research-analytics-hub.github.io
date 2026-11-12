@@ -1,5 +1,5 @@
 <!--
-Adding a project? Fill in the checklist below. If you're changing something
+Adding a project? Fill in the checklist below. CONTRIBUTING.md has the full steps. If you're changing something
 else on the site, delete the checklist and describe the change instead.
 -->
 

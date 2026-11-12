@@ -1,0 +1,109 @@
+name: Resource request
+description: Ask to have a code, data or guide resource listed on REACH code and data.
+title: "Resource request: "
+labels: ["resource request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a resource. A REACH maintainer will use your answers to write the listing and will follow up here if anything is unclear.
+
+        If you're comfortable editing a text file on GitHub, you can also add the listing yourself with a pull request. [CONTRIBUTING.md](https://github.com/research-analytics-hub/research-analytics-hub.github.io/blob/main/CONTRIBUTING.md) explains both routes.
+
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub repository
+      description: The link to the repository that holds the resource. It must be public.
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+
+  - type: input
+    id: resource_name
+    attributes:
+      label: Resource name
+      description: The name readers should see, in sentence case.
+      placeholder: Award trends by sponsor
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences on what the resource does and who it helps (280 characters at most).
+      placeholder: Scripts that turn a sponsored-awards export into year-over-year trend tables by sponsor and college.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type
+      options:
+        - Code
+        - Data
+        - Code and data
+        - Guide
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintainers
+    attributes:
+      label: Maintainers
+      description: Who readers can contact about the resource. One per line, with institution and GitHub username if they have them.
+      placeholder: |
+        Your Name, Your Institution, @your-github-username
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your connection to the resource
+      options:
+        - I maintain it
+        - I'm suggesting someone else's work
+    validations:
+      required: true
+
+  - type: input
+    id: topics
+    attributes:
+      label: Topics
+      description: Up to six short labels, separated by commas.
+      placeholder: Sponsored research, R
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Other links
+      description: Documentation, a data dictionary or anything else beyond the repository. One per line.
+      placeholder: |
+        Documentation: https://example.org/docs
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Longer description
+      description: Optional. Shown on the resource's own page. Good things to cover are the question it answers, the data it expects and how to cite it.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: The repository is public and has a README explaining how to use it.
+          required: true
+        - label: The repository has a license.
+          required: true
+        - label: It contains no identifiable information about people and no data an institution restricts.
+          required: true
