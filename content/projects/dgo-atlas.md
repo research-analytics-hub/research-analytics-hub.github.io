@@ -33,9 +33,6 @@ added: 2026-11-12
 # Optional. Set to true for the one project to highlight on the home page.
 featured: false
 
-# Optional. Set to true to keep the project off the live site while you work
-# on it. Drafts still show when you preview the site on your own computer.
-draft: true
 ---
 
 A business glossary gives shared definitions for the words an organization uses in its data: what counts as a "clinical trial," an "active student" or "direct costs." Keeping those definitions consistent is hard when they live in spreadsheets and wikis, where it isn't clear who owns a definition, whether it's approved, or when it last changed.
