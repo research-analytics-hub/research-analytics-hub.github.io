@@ -1,9 +1,9 @@
 # Contributing to REACH code and data
 
 Thanks for helping build the index. This site lists code, data and guides that people
-in the REACH community have published openly. Each resource stays in its own GitHub
-repository, owned by the people who maintain it; the site links to it and shows a
-short summary.
+in the REACH community have published openly. Each resource stays where its
+maintainers publish it, usually a GitHub repository but sometimes Zenodo, Dataverse,
+OSF, GitLab or similar; the site links to it and shows a short summary.
 
 There are two ways to add a resource:
 
@@ -12,14 +12,17 @@ There are two ways to add a resource:
 - **Open a pull request** with the listing file yourself if you're comfortable editing
   a text file on GitHub. It's usually the quicker route, and the steps are below.
 
-Either way you'll need a free [GitHub account](https://github.com/signup).
+Either way you'll need a free [GitHub account](https://github.com/signup), even if
+the resource itself isn't on GitHub.
 
 ## What can be listed
 
-A resource can be listed when its repository:
+A resource can be listed when it:
 
-- is **public** on GitHub,
-- has a **README** that explains what it does and how to use it,
+- is **public**: a public GitHub repository, or a page anyone can open without
+  signing in,
+- has **documentation**, such as a README, that explains what it does and how to use
+  it,
 - has a **license**, so others know what they may do with it
   ([choosealicense.com](https://choosealicense.com/) helps; MIT is common for code
   and CC BY 4.0 for data), and
@@ -33,8 +36,9 @@ maintainers before listing someone else's work.
 
 1. Open the
    [resource request form](https://github.com/research-analytics-hub/research-analytics-hub.github.io/issues/new?template=resource-request.yml).
-2. Fill in the fields. Only the repository link, name, summary, type and maintainer are
-   required; the rest helps us write a better listing.
+2. Fill in the fields. Only the link, name, summary, type and maintainer are
+   required, plus the license if the resource isn't on GitHub; the rest helps us write
+   a better listing.
 3. Choose **Create**.
 
 A maintainer will follow up on the issue if anything is unclear, then open the pull
@@ -62,8 +66,8 @@ This happens entirely in your web browser and takes about fifteen minutes.
 ### After you open the pull request
 
 An automatic check called **Build site** runs within a couple of minutes. It confirms
-that every required field is present and in the right format, and that the repository
-exists and is public.
+that every required field is present and in the right format. For a GitHub
+repository, it also confirms the repository exists and is public.
 
 If the check fails, choose **Details** next to it and look for a message near the end
 that names the file and the field, for example:
@@ -81,10 +85,12 @@ wording changes. After it's merged, the site updates within a few minutes.
 
 ## Updating or removing a listing
 
-The repository's license and last-updated date come from GitHub every time
-the site rebuilds, which happens at least once a day, so those stay current on their
-own. Edit your listing file when something in it changes, such as a new maintainer or
-a better summary.
+For a GitHub repository, the license and last-updated date come from GitHub every
+time the site rebuilds, which happens at least once a day, so those stay current on
+their own. For a resource elsewhere, the listing shows the license from your file and
+no last-updated date. Edit your listing file when something in it changes, such as a
+new maintainer, a better summary, a new license, or the resource being retired (set
+`archived: true`).
 
 To remove a listing, open a pull request that deletes its file, or
 [open an issue](https://github.com/research-analytics-hub/research-analytics-hub.github.io/issues/new)
@@ -103,10 +109,13 @@ For anything larger, open an issue first so we can talk it through.
 GitHub asks the Resource Reviewers team for a review automatically on any pull
 request that changes `content/projects/` (set in `.github/CODEOWNERS`).
 
-- The **Build site** check must pass. It has already confirmed the fields and that
-  the repository is public.
-- Open the repository and confirm it has a README and a license, and skim it for
+- The **Build site** check must pass. It has already confirmed the fields and, for a
+  GitHub repository, that the repository is public.
+- Open the resource and confirm it has documentation and a license, and skim it for
   anything that looks like personal or restricted data.
+- For a resource outside GitHub (`url:`), open the link in a private browser window
+  to confirm it loads without signing in, and check that the `license:` line matches
+  what the resource itself states.
 - If the person opening the pull request isn't one of the listed maintainers, confirm
   the maintainers agree before merging.
 - Read the summary as a newcomer would. One or two plain sentences: what the resource
@@ -115,7 +124,8 @@ request that changes `content/projects/` (set in `.github/CODEOWNERS`).
 ### Turning a resource request into a listing
 
 1. Create `content/projects/<name>.md` from the template using the answers in the
-   issue, with `added:` set to today's date.
+   issue, with `added:` set to today's date. Use `repo:` for a GitHub link and `url:`
+   plus `license:` for anything else.
 2. Open a pull request and put `Closes #<issue number>` in its description, so the
    issue closes when the listing is merged.
 3. Mention the requester on the pull request so they can check the wording.

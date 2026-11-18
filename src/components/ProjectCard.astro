@@ -1,7 +1,7 @@
 ---
 import type { Project } from "../lib/content";
 import { formatDate } from "../lib/content";
-import { getRepo } from "../lib/github";
+import { getResource } from "../lib/resource";
 
 interface Props {
   project: Project;
@@ -10,7 +10,7 @@ interface Props {
 
 const { project, headingLevel = "h3" } = Astro.props;
 const { data } = project;
-const repo = await getRepo(data.repo);
+const resource = await getResource(project);
 const Heading = headingLevel;
 ---
 
@@ -20,12 +20,12 @@ const Heading = headingLevel;
   <p class="rch-card-body">{data.summary}</p>
   <div class="rch-card-foot">
     {data.draft && <span class="rch-badge rch-badge-warning">Draft</span>}
-    {repo?.archived && <span class="rch-badge rch-badge-warning">Archived</span>}
+    {resource.archived && <span class="rch-badge rch-badge-warning">Archived</span>}
     {data.topics.slice(0, 3).map((t) => <span class="rch-badge">{t}</span>)}
     {
-      repo && (
+      resource.updatedAt && (
         <span class="card-updated">
-          Updated <time datetime={repo.pushedAt.toISOString()}>{formatDate(repo.pushedAt)}</time>
+          Updated <time datetime={resource.updatedAt.toISOString()}>{formatDate(resource.updatedAt)}</time>
         </span>
       )
     }

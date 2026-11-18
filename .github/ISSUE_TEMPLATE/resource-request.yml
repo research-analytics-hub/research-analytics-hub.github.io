@@ -13,11 +13,20 @@ body:
   - type: input
     id: repo
     attributes:
-      label: GitHub repository
-      description: The link to the repository that holds the resource. It must be public.
+      label: Link to the resource
+      description: A public GitHub repository, or wherever else the resource is published (Zenodo, Dataverse, OSF, GitLab and so on). Readers must be able to open it without signing in.
       placeholder: https://github.com/owner/repository
     validations:
       required: true
+
+  - type: input
+    id: license
+    attributes:
+      label: License
+      description: Required if the resource isn't on GitHub, for example "CC BY 4.0" or "MIT". For GitHub resources, the license is automatically read from the repository.
+      placeholder: CC BY 4.0
+    validations:
+      required: false
 
   - type: input
     id: resource_name
@@ -82,7 +91,7 @@ body:
     id: links
     attributes:
       label: Other links
-      description: Documentation, a data dictionary or anything else beyond the repository. One per line.
+      description: Documentation, a data dictionary or anything else beyond the main link. One per line.
       placeholder: |
         Documentation: https://example.org/docs
     validations:
@@ -101,9 +110,9 @@ body:
     attributes:
       label: Before you submit
       options:
-        - label: The repository is public and has a README explaining how to use it.
+        - label: The resource is publicly accessible and has documentation (such as a README) explaining how to use it.
           required: true
-        - label: The repository has a license.
+        - label: The resource has a license.
           required: true
         - label: It contains no identifiable information about people and no data an institution restricts.
           required: true

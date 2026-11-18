@@ -16,14 +16,14 @@ has already worked through it.
 
 ## Content standards
 
-Before a project is listed, a REACH maintainer confirms that the repository is within the
+Before a project is listed, a REACH maintainer confirms that the resource is within the
 REACH scope, is publicly available, licensed, and that it holds no restricted or identifiable data. 
 We don't audit the code or certify results. Treat a listing as a pointer to work worth looking
-at, and read the repository's own documentation before you use it.
+at, and read the resource's own documentation before you use it.
 
 ## Getting in touch
 
-Questions about a specific project go to its maintainers, usually through the
-repository's issue tracker on GitHub. Questions about this site, or a listing you think
+Questions about a specific project go to its maintainers, listed on the project's
+page, or through its issue tracker if it has one. Questions about this site, or a listing you think
 should change, can go to the
 [site's issue tracker](https://github.com/research-analytics-hub/research-analytics-hub.github.io/issues).

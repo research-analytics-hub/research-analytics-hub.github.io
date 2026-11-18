@@ -2,7 +2,7 @@
 import { render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import { formatDate, getProjects, type Project } from "../../lib/content";
-import { getRepo } from "../../lib/github";
+import { getResource } from "../../lib/resource";
 
 export async function getStaticPaths() {
   const projects = await getProjects();
@@ -12,8 +12,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props as { project: Project };
 const { data } = project;
 const { Content } = await render(project);
-const repo = await getRepo(data.repo);
-const repoUrl = repo?.url ?? `https://github.com/${data.repo}`;
+const resource = await getResource(project);
 ---
 
 <Base title={data.title} description={data.summary}>
@@ -23,7 +22,7 @@ const repoUrl = repo?.url ?? `https://github.com/${data.repo}`;
       <h1>{data.title}</h1>
       <p class="lead">{data.summary}</p>
       <div class="actions">
-        <a class="rch-btn rch-btn-primary" href={repoUrl} target="_blank" rel="noopener noreferrer">View the repository</a>
+        <a class="rch-btn rch-btn-primary" href={resource.href} target="_blank" rel="noopener noreferrer">{resource.buttonLabel}</a>
         {data.links.map((l) => <a class="rch-btn rch-btn-secondary" href={l.url}>{l.label}</a>)}
       </div>
     </header>
@@ -37,12 +36,12 @@ const repoUrl = repo?.url ?? `https://github.com/${data.repo}`;
       )
     }
     {
-      repo?.archived && (
+      resource.archived && (
         <aside class="rch-callout rch-callout-warning" role="note">
           <span class="rch-callout-label">Archived</span>
           <p class="rch-callout-body">
-            The maintainers have archived this repository. It still works as a reference, but it no longer receives
-            updates.
+            The maintainers have archived this {resource.isGitHub ? "repository" : "resource"}. It still works as a
+            reference, but it no longer receives updates.
           </p>
         </aside>
       )
@@ -76,19 +75,33 @@ const repoUrl = repo?.url ?? `https://github.com/${data.repo}`;
             </dd>
           </div>
           <div>
-            <dt>Repository</dt>
-            <dd><a href={repoUrl} target="_blank" rel="noopener noreferrer"><code>{data.repo}</code></a></dd>
+            <dt>{resource.isGitHub ? "Repository" : "Source"}</dt>
+            <dd>
+              <a href={resource.href} target="_blank" rel="noopener noreferrer">
+                {resource.isGitHub ? <code>{resource.sourceText}</code> : <span class="source-url">{resource.sourceText}</span>}
+              </a>
+            </dd>
           </div>
           <div>
             <dt>License</dt>
-            <dd>{repo ? (repo.license ?? "None detected; check the repository") : "See the repository"}</dd>
+            <dd>
+              {
+                resource.license === null ? (
+                  resource.licenseFallback
+                ) : resource.licenseUrl ? (
+                  <a href={resource.licenseUrl} target="_blank" rel="noopener noreferrer">{resource.license}</a>
+                ) : (
+                  resource.license
+                )
+              }
+            </dd>
           </div>
           {
-            repo && (
+            resource.updatedAt && (
               <div>
                 <dt>Last updated</dt>
                 <dd>
-                  <time datetime={repo.pushedAt.toISOString()}>{formatDate(repo.pushedAt)}</time>
+                  <time datetime={resource.updatedAt.toISOString()}>{formatDate(resource.updatedAt)}</time>
                 </dd>
               </div>
             )

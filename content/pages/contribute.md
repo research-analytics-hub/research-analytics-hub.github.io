@@ -5,13 +5,15 @@ eyebrow: "Contribute"
 ---
 
 If you've published code, data or a guide that would save another research analytics
-team some time, we'd like to list it. You keep the repository; this site links to it
+team some time, we'd like to list it. You keep it where it is; this site links to it
 and shows a short summary. Adding a listing takes about fifteen minutes.
 
 ## Before you start
 
-Your project needs a public GitHub repository with a README that explains what it
-does and how to use it. It also needs a license, so others know what they're allowed
+Your project needs to be public: a public GitHub repository, or a page anyone can
+open without signing in somewhere else, such as Zenodo, Dataverse, OSF or GitLab. It
+needs documentation, such as a README, that explains what it does and how to use it.
+It also needs a license, so others know what they're allowed
 to do with it. If you're unsure which to choose,
 [choosealicense.com](https://choosealicense.com/) is a good place to start; MIT is
 common for code and CC BY 4.0 for data.
@@ -50,9 +52,11 @@ wording changes, and merges it. The site updates a few minutes after that.
 
 ## Keeping a listing current
 
-The repository's license and last-updated date come straight from
-GitHub each time the site rebuilds, which happens at least once a day. You only need
-to edit your listing file when something in it changes, such as a new maintainer. To remove a
+For a GitHub repository, the license and last-updated date come straight from GitHub
+each time the site rebuilds.  For anything else,
+the license is whatever your listing file says. Either way, you only need to edit
+your listing file when something in it changes, such as a new maintainer, a new
+license or the resource being retired (set `archived: true`). To remove a
 listing, open a pull request that deletes the file, or
 [open an issue](https://github.com/research-analytics-hub/research-analytics-hub.github.io/issues/new)
 and we'll take it down.
