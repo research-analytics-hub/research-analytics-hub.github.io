@@ -11,8 +11,8 @@ folder, so most changes never touch code.
 
 | To change… | Edit |
 | --- | --- |
-| A project listing | `content/projects/<project>.md` |
-| Add a project | Copy `content/projects/_template.md` to a new file, or file a resource request issue (see [CONTRIBUTING.md](CONTRIBUTING.md)) |
+| A project listing | `content/resources/<project>.md` |
+| Add a project | Copy `content/resources/_template.md` to a new file, or file a resource request issue (see [CONTRIBUTING.md](CONTRIBUTING.md)) |
 | The About or Contribute page | `content/pages/about.md`, `content/pages/contribute.md` |
 | Add a page | A new `.md` file in `content/pages/`; `history.md` becomes `/history/`. Add it to the menu in `content/settings.yaml` |
 | Home page headline, menu, footer | `content/settings.yaml` |
@@ -67,7 +67,7 @@ npm run preview   # serve dist/ at http://localhost:4321, drafts excluded
 ```
 
 Open the built site through `npm run preview`, not by double-clicking
-`dist/index.html`. Links like `/projects/` point at the site root, which only
+`dist/index.html`. Links like `/resources/` point at the site root, which only
 works when a web server is serving `dist/`.
 
 Without a `GITHUB_TOKEN` in your environment the GitHub API allows 60 requests an
@@ -85,7 +85,7 @@ the two don't drift. Site-specific layout lives in `src/styles/site.css`.
 
 ```
 content/            everything editors change
-  projects/         one Markdown file per listed project
+  resources/        one Markdown file per listed resource
   pages/            standalone pages (About, Contribute)
   callouts/         dated announcements for the home page
   settings.yaml     headline, menu, footer

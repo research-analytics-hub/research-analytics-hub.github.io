@@ -50,14 +50,14 @@ live.
 This happens entirely in your web browser and takes about fifteen minutes.
 
 1. Open the
-   [listing template](content/projects/_template.md) and copy everything in it. The
+   [listing template](content/resources/_template.md) and copy everything in it. The
    comments in the template explain each field.
-2. Go to the [projects folder](content/projects/), choose **Add file**, then
+2. Go to the [projects folder](content/resources/), choose **Add file**, then
    **Create new file**. If you don't have write access to this repository, GitHub
    will offer to make your own copy (a "fork") first; accept it.
 3. Name the file after the resource in lowercase with hyphens, ending in `.md`, for
    example `award-trends.md`. The file name becomes the web address:
-   `/projects/award-trends/`.
+   `/resources/award-trends/`.
 4. Paste the template and replace the example values with your own. Delete the line
    `draft: true` near the bottom, or change it to `draft: false`.
 5. Choose **Commit changes**, then **Propose changes**, then **Create pull request**,
@@ -107,7 +107,7 @@ For anything larger, open an issue first so we can talk it through.
 ### Reviewing a listing pull request
 
 GitHub asks the Resource Reviewers team for a review automatically on any pull
-request that changes `content/projects/` (set in `.github/CODEOWNERS`).
+request that changes `content/resources/` (set in `.github/CODEOWNERS`).
 
 - The **Build site** check must pass. It has already confirmed the fields and, for a
   GitHub repository, that the repository is public.
@@ -123,7 +123,7 @@ request that changes `content/projects/` (set in `.github/CODEOWNERS`).
 
 ### Turning a resource request into a listing
 
-1. Create `content/projects/<name>.md` from the template using the answers in the
+1. Create `content/resources/<name>.md` from the template using the answers in the
    issue, with `added:` set to today's date. Use `repo:` for a GitHub link and `url:`
    plus `license:` for anything else.
 2. Open a pull request and put `Closes #<issue number>` in its description, so the

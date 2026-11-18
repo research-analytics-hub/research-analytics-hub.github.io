@@ -19,4 +19,4 @@ locally and stays off the live site.
 
 Every project page pulls its license and last
 update from GitHub when the site builds. The text you are reading now comes from
-the Markdown file in `content/projects/`.
+the Markdown file in `content/resources/`.

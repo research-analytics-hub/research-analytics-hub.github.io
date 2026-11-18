@@ -32,10 +32,10 @@ up on the request if anything is unclear. You'll need a free
 ## Add a listing yourself
 
 1. Open the
-   [project template](https://github.com/research-analytics-hub/research-analytics-hub.github.io/blob/main/content/projects/_template.md)
+   [project template](https://github.com/research-analytics-hub/research-analytics-hub.github.io/blob/main/content/resources/_template.md)
    and copy everything in it.
 2. Go to the
-   [projects folder](https://github.com/research-analytics-hub/research-analytics-hub.github.io/tree/main/content/projects),
+   [projects folder](https://github.com/research-analytics-hub/research-analytics-hub.github.io/tree/main/content/resources),
    choose **Add file**, then **Create new file**. GitHub will offer to make your own
    copy of the site (a "fork") the first time; accept it.
 3. Name the file after your project in lowercase with hyphens, ending in `.md`, for

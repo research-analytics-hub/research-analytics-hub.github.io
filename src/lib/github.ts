@@ -40,7 +40,7 @@ async function fetchRepo(repo: string): Promise<RepoInfo | null> {
   if (res.status === 404) {
     const message =
       `[github] The repository "${repo}" was not found. Check the repo: line in its ` +
-      `content/projects file, and make sure the repository is public.`;
+      `content/resources file, and make sure the repository is public.`;
     if (process.env.CI) throw new Error(message);
     console.warn(message);
     return null;

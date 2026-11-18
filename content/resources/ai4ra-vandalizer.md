@@ -1,7 +1,7 @@
 ---
 # Copy this file to add a project. Name the copy after your project in
 # lowercase with hyphens, for example: award-trends.md
-# The file name becomes the web address: /projects/award-trends/
+# The file name becomes the web address: /resources/award-trends/
 # Files that start with an underscore, like this one, never appear on the site.
 
 # Required. The project's name as readers should see it. Sentence case.

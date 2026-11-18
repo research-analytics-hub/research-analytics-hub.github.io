@@ -27,7 +27,7 @@ const githubRepoUrl = /^https?:\/\/(www\.)?github\.com\/[^/]+\/[^/]+?(\.git)?\/?
 
 const projects = defineCollection({
   // Files whose names start with an underscore (like _template.md) are skipped.
-  loader: glob({ pattern: "[^_]*.md", base: "./content/projects" }),
+  loader: glob({ pattern: "[^_]*.md", base: "./content/resources" }),
   schema: () =>
     z.object({
       title: z.string().min(1).max(90),

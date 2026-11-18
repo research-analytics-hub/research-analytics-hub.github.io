@@ -58,7 +58,7 @@ site:
       - title: "This site"
         links:
           - label: "Projects"
-            url: "/projects/"
+            url: "/resources/"
           - label: "How to contribute"
             url: "/contribute/"
           - label: "GitHub"

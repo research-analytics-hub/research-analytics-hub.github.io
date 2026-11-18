@@ -5,7 +5,7 @@ else on the site, delete the checklist and describe the change instead.
 
 ## Adding a project
 
-Project file: `content/projects/________.md`
+Project file: `content/resources/________.md`
 
 - [ ] The resource is public: a public GitHub repository, or a page anyone can open without signing in.
 - [ ] It has documentation (such as a README) explaining what the project does and how to use it.
