@@ -23,10 +23,13 @@ topics:
   - "R"
 
 # Required. At least one person readers can contact about the project.
+# github and email are optional. The name links to the GitHub profile if
+# given, otherwise to the email address, otherwise it appears as plain text.
 maintainers:
   - name: "Your Name"
     affiliation: "Your Institution"
     github: "your-github-username"
+    email: "you@your-institution.edu"
 
 # Optional. Extra links beyond the repository, such as documentation or a
 # data dictionary. Use full addresses starting with https://

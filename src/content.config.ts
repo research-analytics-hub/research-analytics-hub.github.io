@@ -45,6 +45,7 @@ const projects = defineCollection({
             name: z.string().min(1),
             affiliation: z.string().optional(),
             github: z.string().optional(),
+            email: z.email("Use a full email address, for example name@university.edu.").optional(),
           }),
         )
         .min(1, "List at least one maintainer so readers know who to ask."),

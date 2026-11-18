@@ -61,7 +61,13 @@ const repoUrl = repo?.url ?? `https://github.com/${data.repo}`;
                 {
                   data.maintainers.map((m) => (
                     <li>
-                      {m.github ? <a target="_blank" rel="noopener noreferrer" href={`https://github.com/${m.github}`}>{m.name}</a> : m.name}
+                      { m.github ? (
+                        <a target="_blank" rel="noopener noreferrer" href={`https://github.com/${m.github}`}>{m.name}</a>
+                      ) : m.email ? (
+                        <a href={`mailto:${m.email}`}>{m.name}</a>
+                      ) : (
+                        m.name
+                      )}
                       {m.affiliation && <span class="meta-sub">{m.affiliation}</span>}
                     </li>
                   ))
