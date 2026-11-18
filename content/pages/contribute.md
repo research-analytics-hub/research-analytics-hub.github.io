@@ -1,5 +1,5 @@
 ---
-title: "Add your project"
+title: "Add a resource"
 description: "How to list your code or data on REACH code and data, using nothing more than a GitHub account."
 eyebrow: "Contribute"
 ---
@@ -10,7 +10,7 @@ and shows a short summary. Adding a listing takes about fifteen minutes.
 
 ## Before you start
 
-Your project needs to be public: a public GitHub repository, or a page anyone can
+Your resource needs to be public: a public GitHub repository, or a page anyone can
 open without signing in somewhere else, such as Zenodo, Dataverse, OSF or GitLab. It
 needs documentation, such as a README, that explains what it does and how to use it.
 It also needs a license, so others know what they're allowed
@@ -32,13 +32,13 @@ up on the request if anything is unclear. You'll need a free
 ## Add a listing yourself
 
 1. Open the
-   [project template](https://github.com/research-analytics-hub/research-analytics-hub.github.io/blob/main/content/resources/_template.md)
+   [resource template](https://github.com/research-analytics-hub/research-analytics-hub.github.io/blob/main/content/resources/_template.md)
    and copy everything in it.
 2. Go to the
-   [projects folder](https://github.com/research-analytics-hub/research-analytics-hub.github.io/tree/main/content/resources),
+   [resources folder](https://github.com/research-analytics-hub/research-analytics-hub.github.io/tree/main/content/resources),
    choose **Add file**, then **Create new file**. GitHub will offer to make your own
    copy of the site (a "fork") the first time; accept it.
-3. Name the file after your project in lowercase with hyphens, ending in `.md`, for
+3. Name the file after the resource in lowercase with hyphens, ending in `.md`, for
    example `award-trends.md`. Paste the template and replace the example values with
    your own. Delete the line `draft: true` near the bottom, or change it to
    `draft: false`.
