@@ -8,7 +8,7 @@
 # - Lines starting with # are notes like this one and are ignored.
 
 site:
-  title: "REACH code and data"
+  title: "REACH Community Network Space"
   description: "Open code, data and guides from the Research Evaluation & Analytics Capacity Hub community."
   github_org: "research-analytics-hub"
 
