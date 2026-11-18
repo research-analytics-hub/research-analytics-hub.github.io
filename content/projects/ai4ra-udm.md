@@ -40,10 +40,6 @@ added: 2026-11-12
 
 # Optional. Set to true for the one project to highlight on the home page.
 featured: false
-
-# Optional. Set to true to keep the project off the live site while you work
-# on it. Drafts still show when you preview the site on your own computer.
-draft: true
 ---
 
 A shared set of definitions for research administration data, so systems can exchange it and institutions can compare it.
