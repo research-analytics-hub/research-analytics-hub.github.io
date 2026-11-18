@@ -21,17 +21,25 @@ site:
       This is where members of the REACH community publish the code and data behind 
       their work so the next person can start from it.
     primary_action:
-      label: "Browse projects"
-      url: "/projects/"
+      label: "Browse resources"
+      url: "/resources/"
     secondary_action:
       label: "Add your project"
       url: "/contribute/"
 
+  # The body of the project index page
+  resource_listing:
+    eyebrow: Resources
+    title: All resources
+    lead: >-
+      Everything here is maintained by its authors wherever they publish their work. Open a resource
+      to see more details.
+
   # Links in the top menu, left to right. Use paths like /about/ for pages
   # on this site and full addresses (https://...) for other sites.
   navigation:
-    - label: "Projects"
-      url: "/projects/"
+    - label: "Resources"
+      url: "/resources/"
     - label: "Contribute"
       url: "/contribute/"
     - label: "About"

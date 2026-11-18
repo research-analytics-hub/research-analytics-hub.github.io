@@ -145,6 +145,11 @@ const settings = defineCollection({
       primary_action: siteLink,
       secondary_action: siteLink,
     }),
+    resource_listing: z.object({
+      eyebrow: z.string(),
+      title: z.string(),
+      lead: z.string(),
+    }),
     navigation: z.array(siteLink),
     footer: z.object({
       about: z.string(),

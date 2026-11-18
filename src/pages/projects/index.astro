@@ -1,8 +1,10 @@
 ---
 import Base from "../../layouts/Base.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
-import { getProjects } from "../../lib/content";
+import { getProjects, getSettings } from "../../lib/content";
 
+const settings = await getSettings();
+const { resource_listing } = settings;
 const projects = await getProjects();
 const kinds = [...new Set(projects.map((p) => p.data.kind))].sort();
 ---
@@ -10,11 +12,10 @@ const kinds = [...new Set(projects.map((p) => p.data.kind))].sort();
 <Base title="Projects" description="Code, data and guides published by members of the REACH community.">
   <div class="rch-container page">
     <header class="page-head">
-      <p class="rch-eyebrow">Projects</p>
-      <h1>All projects</h1>
+      <p class="rch-eyebrow">{ resource_listing.eyebrow }</p>
+      <h1>{ resource_listing.title }</h1>
       <p class="lead">
-        Everything here is maintained by its authors wherever they publish their work. Open a project
-        to see more details.
+        { resource_listing.lead }
       </p>
     </header>
 
