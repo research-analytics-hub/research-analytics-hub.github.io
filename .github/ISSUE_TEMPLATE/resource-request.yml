@@ -1,7 +1,8 @@
 name: Resource request
 description: Ask to have a code, data or guide resource listed on REACH code and data.
-title: "Resource request: "
-labels: ["resource request"]
+title: "[New Resource]: "
+labels: ["triage needed", "new resource"]
+type: "Resource Request"
 body:
   - type: markdown
     attributes:
