@@ -1,0 +1,90 @@
+# When a reviewer adds the "approved" label to a "new resource" issue, this
+# workflow writes the listing file from the form answers, opens a pull request
+# linked to the issue, and starts the Build site check on it. If the requester
+# edits the issue afterwards, the file is regenerated on the same branch.
+#
+# Setup (see README.md, "Resource request automation"):
+# - Settings → Actions → General → Workflow permissions: allow GitHub Actions
+#   to create and approve pull requests.
+# - Labels "new resource" (applied by the request form) and "approved".
+#
+# Pull requests opened with the built-in token don't start other workflows,
+# except through an explicit workflow_dispatch, so the last step dispatches
+# site.yml on the branch. Its Build site check reports on the pull request.
+#
+# The issue text is untrusted. Only the Node script reads it, from the event
+# file; gh and git get it through files and quoted variables, never ${{ }}.
+name: Resource request
+
+on:
+  issues:
+    types: [labeled, edited]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: resource-request-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  listing:
+    name: Generate listing pull request
+    if: >-
+      github.event.issue.state == 'open' &&
+      contains(github.event.issue.labels.*.name, 'new resource') &&
+      contains(github.event.issue.labels.*.name, 'approved') &&
+      (github.event.action == 'edited' || github.event.label.name == 'approved')
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write # dispatch the Build site check
+      contents: write # push the branch
+      pull-requests: write
+      issues: write # comment and update labels
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+
+      - name: Write the listing from the issue
+        run: node scripts/issue-to-resource.mjs "$GITHUB_EVENT_PATH" "$RUNNER_TEMP/listing"
+
+      - name: Open or update the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+          OUT: ${{ runner.temp }}/listing
+        run: |
+          set -euo pipefail
+
+          if [ "$(jq -r .ok "$OUT/result.json")" != "true" ]; then
+            gh issue comment "$ISSUE" --body-file "$OUT/comment.md"
+            exit 0
+          fi
+
+          FILE="$(jq -r .path "$OUT/result.json")"
+          TITLE="$(cat "$OUT/pr-title.txt")"
+          BRANCH="resource-request/$ISSUE"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add -- "$FILE"
+          git commit --quiet --file "$OUT/pr-title.txt"
+          git push --force origin "$BRANCH"
+
+          PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [ -n "$PR" ]; then
+            gh pr edit "$PR" --title "$TITLE" --body-file "$OUT/pr-body.md"
+          else
+            URL="$(gh pr create --base main --head "$BRANCH" --title "$TITLE" --body-file "$OUT/pr-body.md")"
+            gh issue comment "$ISSUE" --body "The listing is ready for review in $URL"
+            gh issue edit "$ISSUE" --remove-label "triage needed" || true
+          fi
+
+          # Start the Build site check on the new commit (see the note at the top).
+          gh workflow run site.yml --ref "$BRANCH"

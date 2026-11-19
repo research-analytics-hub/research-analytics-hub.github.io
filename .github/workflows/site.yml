@@ -38,7 +38,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ASTRO_TELEMETRY_DISABLED: "1"
 
-      - if: github.event_name != 'pull_request'
+      # Only main is published. Builds of other branches, such as the resource
+      # request branches dispatched by resource-request.yml, stop at the check.
+      - if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist

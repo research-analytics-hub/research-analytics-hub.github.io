@@ -55,6 +55,26 @@ The built site is uploaded as a Pages artifact; there is no `gh-pages` branch.
 2. **Settings → Branches**: add a rule for `main` that requires pull requests and the
    **Build site** status check, so nothing reaches the live site without passing.
 
+### Resource request automation
+
+`.github/workflows/resource-request.yml` runs when a reviewer adds the `approved`
+label to a `new resource` issue. `scripts/issue-to-resource.mjs` writes the listing
+file from the form answers, and the workflow opens a pull request on the branch
+`resource-request/<issue number>` that closes the issue when merged. Setup:
+
+1. **Settings → Actions → General → Workflow permissions**: tick **Allow GitHub
+   Actions to create and approve pull requests**.
+2. **Issues → Labels**: create `new resource`, `triage needed` and `approved`.
+
+GitHub doesn't let a pull request opened by a workflow start other workflows on its
+own, so the request workflow starts **Build site** on the branch itself. If that
+check ever looks stuck on one of these pull requests, closing and reopening the pull
+request runs it again.
+
+The script reads the form by its field labels. If you rename a field in
+`.github/ISSUE_TEMPLATE/resource-request.yml`, update `FIELDS` at the top of the
+script to match.
+
 ## Working on the site locally
 
 You need Node.js 24 (see `.nvmrc`; Astro 7 requires at least 22.23.4).

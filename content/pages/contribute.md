@@ -25,8 +25,9 @@ data your institution restricts. Public data and synthetic data are both fine.
 
 If you'd rather not edit a file, fill in a
 [resource request](https://github.com/research-analytics-hub/research-analytics-hub.github.io/issues/new?template=resource-request.yml)
-on GitHub instead. A REACH maintainer writes the listing from your answers and follows
-up on the request if anything is unclear. You'll need a free
+on GitHub instead. A REACH reviewer follows up on the request if anything is unclear,
+and once they approve it, your listing is generated from your answers and sent for a
+final review. You'll need a free
 [GitHub account](https://github.com/signup) for either route.
 
 ## Add a listing yourself

@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for suggesting a resource. A REACH maintainer will use your answers to write the listing and will follow up here if anything is unclear.
+        Thanks for suggesting a resource. A REACH reviewer will follow up here if anything is unclear. Once they approve the request, a pull request with your listing is opened automatically from these answers.
 
         If you're comfortable editing a text file on GitHub, you can also add the listing yourself with a pull request. [CONTRIBUTING.md](https://github.com/research-analytics-hub/research-analytics-hub.github.io/blob/main/CONTRIBUTING.md) explains both routes.
 
@@ -63,9 +63,10 @@ body:
     id: maintainers
     attributes:
       label: Maintainers
-      description: Who readers can contact about the resource. One per line, with institution and GitHub username if they have them.
+      description: Who readers can contact about the resource. One person per line, name first, then any of institution, GitHub username and email, separated by commas. Write names first-name first (no comma inside the name).
       placeholder: |
-        Your Name, Your Institution, @your-github-username
+        Jane Doe, University of Kentucky, @janedoe
+        Sam Lee, sam.lee@uidaho.edu
     validations:
       required: true
 

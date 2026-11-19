@@ -41,9 +41,9 @@ maintainers before listing someone else's work.
    a better listing.
 3. Choose **Create**.
 
-A maintainer will follow up on the issue if anything is unclear, then open the pull
-request that adds the listing. The issue closes automatically when the listing goes
-live.
+A reviewer will follow up on the issue if anything is unclear. Once they approve it,
+a pull request with your listing is opened automatically from your answers and linked
+on the issue. The issue closes when the listing goes live.
 
 ## Option 2: Open a pull request
 
@@ -123,14 +123,28 @@ request that changes `content/resources/` (set in `.github/CODEOWNERS`).
 
 ### Turning a resource request into a listing
 
-1. Create `content/resources/<name>.md` from the template using the answers in the
-   issue, with `added:` set to today's date. Use `repo:` for a GitHub link and `url:`
-   plus `license:` for anything else.
-2. Open a pull request and put `Closes #<issue number>` in its description, so the
-   issue closes when the listing is merged.
-3. Mention the requester on the pull request so they can check the wording.
+1. Read the request. If it's in scope, add the **`approved`** label.
+2. Within a minute or two, the resource request workflow writes
+   `content/resources/<name>.md` from the answers (`repo:` for a GitHub repository,
+   `url:` and `license:` for anything else) and opens a pull request with
+   `Closes #<issue number>`, so the two are linked. It comments the link on the
+   issue, removes `triage needed`, and starts the **Build site** check.
+3. Review that pull request like any other listing.
+
+If an answer can't be used (a summary that's too long, a link it can't read, a
+resource that's already listed), the workflow comments on the issue instead and
+explains what to change. When the requester edits the issue, the listing is
+generated again and the open pull request updates. That also replaces any edits made
+directly in the pull request, so make wording changes there only once the requester
+is done.
+
+To do it by hand instead, create the file from the template, open a pull request with
+`Closes #<issue number>` in its description, and mention the requester.
 
 ### Labels
 
-The request form applies the `resource request` label. Create that label once under
-**Issues → Labels** if it doesn't exist yet; GitHub skips labels it can't find.
+- `new resource` and `triage needed`: applied by the request form.
+- `approved`: added by a reviewer to generate the pull request.
+
+Create them once under **Issues → Labels** if they don't exist yet; GitHub skips
+labels it can't find.
