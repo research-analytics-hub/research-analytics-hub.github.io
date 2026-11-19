@@ -117,3 +117,8 @@ body:
           required: true
         - label: It contains no identifiable information about people and no data an institution restricts.
           required: true
+          
+  - type: markdown
+    attributes:
+      value: |
+        cc @research-analytics-hub/resource-reviewers
