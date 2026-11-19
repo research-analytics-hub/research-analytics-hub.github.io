@@ -1,7 +1,7 @@
-# REACH code and data
+# REACH Resource Directory
 
-Source for <https://research-analytics-hub.github.io>, the public index of code and
-data published by the REACH (Research Evaluation & Analytics Capacity Hub) community.
+Source for <https://research-analytics-hub.github.io>, the public index of code, 
+data, and resources published by the REACH (Research Evaluation & Analytics Capacity Hub) community.
 
 The site is built with [Astro](https://astro.build) and published to GitHub Pages by
 GitHub Actions. All of the words on it live in plain text files in the `content/`
