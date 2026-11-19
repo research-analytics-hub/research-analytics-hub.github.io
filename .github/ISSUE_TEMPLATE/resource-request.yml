@@ -1,5 +1,5 @@
-name: Resource request
-description: Ask to have a code, data or guide resource listed on REACH code and data.
+name: New Resource request
+description: Ask to have a code, data or guide resource listed in the directory.
 title: "[New Resource]: "
 labels: ["triage needed", "new resource"]
 type: "Resource Request"
